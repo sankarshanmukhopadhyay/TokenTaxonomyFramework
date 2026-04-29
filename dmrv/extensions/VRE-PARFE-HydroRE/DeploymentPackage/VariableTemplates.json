@@ -1,0 +1,100 @@
+{
+  "variableTemplates": [
+    {
+      "id": "kwhReading",
+      "name": "kwh",
+      "alias": "",
+      "description": "Interval energy reading from ZEM63 meter in kilowatt-hours. This is the raw hardware measurement — the foundation of the entire protocol. Field name in TELEMETRY schema: 'kwh'.",
+      "version": "VRE-PARFE:1.0",
+      "documentation": "inherited",
+      "dataSchemaOrType": "vreparfe.extensionSet.DoubleValue",
+      "dataExample": "{ \"value\": 0.0, \"u_o_m\": \"kWh\" }",
+      "suggestedUnit": "kWh",
+      "valueType": "number",
+      "unitOfMeasure": "kWh",
+      "requiredAtMonitoring": true,
+      "requiredAtValidation": false,
+      "templateId": "73ee2197-31e7-45c2-b153-721a34bf4c46",
+      "entityExtensions": [
+        {
+          "entityExtensionTemplateId": "fdbc4fc4-5976-4055-9036-be6311b2536f",
+          "data": {
+            "appliesForMonitoringType": "GENERATION",
+            "requiredForPhysicsCheck": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "sensorRef",
+      "name": "sensorRef",
+      "alias": "",
+      "description": "Unique sensor reference ID. Format: SEN-ZEM63-XXXX (e.g. SEN-ZEM63-0002). This is the primary identifier linking a TELEMETRY record to a registered sensor.",
+      "version": "VRE-PARFE:1.0",
+      "documentation": "inherited",
+      "dataSchemaOrType": "vreparfe.extensionSet.StringValue",
+      "dataExample": "{ \"value\": \"SEN-ZEM63-0002\" }",
+      "suggestedUnit": "",
+      "valueType": "string",
+      "unitOfMeasure": "",
+      "requiredAtMonitoring": true,
+      "requiredAtValidation": false,
+      "templateId": "6e0ebd1f-8aae-40b3-9082-dcf4b282642f",
+      "entityExtensions": [
+        {
+          "entityExtensionTemplateId": "fdbc4fc4-5976-4055-9036-be6311b2536f",
+          "data": {
+            "appliesForMonitoringType": "GENERATION",
+            "requiredForPhysicsCheck": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "gatewayRef",
+      "name": "gatewayRef",
+      "alias": "",
+      "description": "Unique gateway reference ID. Format: GW-ZGW10-XXXX (e.g. GW-ZGW10-0001). Links the TELEMETRY record to the registered ZGW10 IoT gateway that signed it.",
+      "version": "VRE-PARFE:1.0",
+      "documentation": "inherited",
+      "dataSchemaOrType": "vreparfe.extensionSet.StringValue",
+      "dataExample": "{ \"value\": \"GW-ZGW10-0001\" }",
+      "suggestedUnit": "",
+      "valueType": "string",
+      "unitOfMeasure": "",
+      "requiredAtMonitoring": true,
+      "requiredAtValidation": false,
+      "templateId": "4e65dd80-e86a-475d-bba0-453016eaa08d",
+      "entityExtensions": [
+        {
+          "entityExtensionTemplateId": "fdbc4fc4-5976-4055-9036-be6311b2536f",
+          "data": {
+            "appliesForMonitoringType": "GENERATION",
+            "requiredForPhysicsCheck": false
+          }
+        }
+      ]
+    },
+    {
+      "id": "licenseeRef",
+      "name": "licenseeRef",
+      "alias": "",
+      "description": "Unique licensee reference ID. Format: LIC-MU-XXXX (e.g. LIC-MU-0001). Links the TELEMETRY record to the commissioning licensee and their HCS topic.",
+      "version": "VRE-PARFE:1.0",
+      "documentation": "inherited",
+      "dataSchemaOrType": "vreparfe.extensionSet.StringValue",
+      "dataExample": "{ \"value\": \"LIC-MU-0001\" }",
+      "suggestedUnit": "",
+      "valueType": "string",
+      "unitOfMeasure": "",
+      "requiredAtMonitoring": true,
+      "requiredAtValidation": false,
+      "templateId": "77a1c878-1514-433b-8d08-7be41799ffaa",
+      "entityExtensions": [
+        {
+          "entityExtensionTemplateId": "fdbc4fc4-5976-4055-9036-be6311b2536f",
+          "data": {
+            "appliesForMonitoringType": "GENERATION",
+            "requiredForPhysicsCheck": false
+          }
+        }
