@@ -6,7 +6,7 @@ However, Github and the file formats used for taxonomy artifacts is not designed
 
 To create a good programable experience and easy integration, a Taxonomy Model is used to represent that backend for consumption and update from any sort of application. The TTF has no "rendering or UI" out of the box, by design. But by providing a [gRpc](https://grpc.io/) interface, which can also have a REST facade, anyone can build a "client" for the taxonomy using the model.
 
-The [TaxonomyService](tools/readme.md) provides CRUD capabilities for the backend Github (local clone only for now) to be able to interact with the taxonomy without having to program against the Github API directly.
+The [TaxonomyService](docs/validation.md) provides CRUD capabilities for the backend Github (local clone only for now) to be able to interact with the taxonomy without having to program against the Github API directly.
 
 ![TTF Architecture](images/TaxonomyService.png)
 
@@ -19,7 +19,7 @@ The folder is named after the artifact name and contains 3 files initially:
 - .json - the artifact object serialized from the model.
 - .proto - the artifact's control descriptions
 - .md - the artifact's additional documentation or UML models
-- .docx - a documentation file that is created by the [TTF-Printer](tools/Readme.md).
+- .docx - a documentation file that is created by the [TTF-Printer](docs/validation.md).
 
 Other files can be placed in the artifact folder and be read into the model in binary. This is turned off for now, depending on requests if this is necessary.
 
@@ -29,4 +29,4 @@ The object model provides the structured data for artifacts that is extensible v
 
 ![TOM](images/taxonomy-model.png)
 
-For a detailed overview of the model see [TOM](model/tom.md).
+For a detailed overview of the model see [TOM](taxonomy-model.md).

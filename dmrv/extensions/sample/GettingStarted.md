@@ -54,7 +54,7 @@ enum CO2MeasurementOption{
 
 ### Variable Templates
 
-[Variable Templates](./DeplomentPackage/VariableTemplates.json): Variable templates are used to define the methodology module parameters that are required for reporting and formula calculations. These have fixed identifiers and should be installed second. VariableTemplates represent the variables or parameters that are required for monitoring and reporting in a methodology module and are the most frequently used template type. They are use in defining ClaimSources and AIM Fixed Variables, thus a naming convention that is easily understood by project proponents is recommended.
+[Variable Templates](./DeploymentPackage/VariableTemplates.json): Variable templates are used to define the methodology module parameters that are required for reporting and formula calculations. These have fixed identifiers and should be installed second. VariableTemplates represent the variables or parameters that are required for monitoring and reporting in a methodology module and are the most frequently used template type. They are use in defining ClaimSources and AIM Fixed Variables, thus a naming convention that is easily understood by project proponents is recommended.
 
 The Id is a composite key that includes the `Id` and the `Version` so that multiple versions of a variable template can be defined if the parameter definition changes over time. It is recommended that the `Id` be a string, minus special characters like commas or spaces, that represents the parameter name used in the methodology documentation and that the `Version` include the `ModuleName` followed by a `:` and the version number, e.g., `VM0049:1.0`. If a variable template is updated, a new version should be created with the same `Id` but a different `Version`. When a ClaimSource, CheckpointTemplate or FormulaTemplate references a VariableTemplate, it should reference the specific version required. Below is an example of a VariableTemplate definition for the `FRmass,x` parameter used in the `VM0049` module.
 
@@ -84,7 +84,7 @@ The Id is a composite key that includes the `Id` and the `Version` so that multi
 
 ### Formula Templates
 
-[Formula Templates](./DeplomentPackage/FormulaTemplates.json): Formula templates are used to define the methodology module equations that have references to the variable templates that are required for calculation. These are installed third.
+[Formula Templates](./DeploymentPackage/FormulaTemplates.json): Formula templates are used to define the methodology module equations that have references to the variable templates that are required for calculation. These are installed third.
 
 ```json
 {
@@ -108,7 +108,7 @@ The Id is a composite key that includes the `Id` and the `Version` so that multi
 
 ### Message Pairs
 
-[Message Pairs](./DeplomentPackage/MessagePairs.json): Message pairs allow for any request/response message pair to be defined to customize business workflow between parties. These are installed last.
+[Message Pairs](./DeploymentPackage/MessagePairs.json): Message pairs allow for any request/response message pair to be defined to customize business workflow between parties. These are installed last.
 
 ```json
 {
@@ -254,7 +254,7 @@ A `ClaimSource` is a registration of an information or evidence source like a se
 
 It is a best practice to only allow for Checkpoint.Variables to be reported from registered Claim Sources, this provides traceability for the source of the variable value and allows for easier validation of the data being reported.
 
-Claim Sources are `ActivityImpactModule` specific and are configured in the [ClaimSources.json](./ImplementationPackage/ClaimSources.json) file. Each claim source has one or more VariableTemplates associated with it where each VariableTemplate as a `VariableTemplateId`, `VariableVersion` and `SourceIdentifier`.
+Claim Sources are `ActivityImpactModule` specific and are configured in the [ClaimSources.json](./InstancePackage/ClaimSources.json) file. Each claim source has one or more VariableTemplates associated with it where each VariableTemplate as a `VariableTemplateId`, `VariableVersion` and `SourceIdentifier`.
 
 For common libraries like the Project Design Document (PDD) or Emission Factor library, a single Claim Source can be used to report multiple VariableTemplates across multiple modules.
 

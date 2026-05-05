@@ -8,7 +8,7 @@
       "addressLines": [
         "123 ABC St."
       ],
-      "city": "Santarém",
+      "city": "Santar\u00e9m",
       "state": "PA",
       "zip": "234123",
       "country": "Brazil"
@@ -180,5 +180,3 @@
   ],
   "extensions": []
 }
-Response headers
- content-type: application/
