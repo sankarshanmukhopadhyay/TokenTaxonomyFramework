@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://interwork-alliance.github.io/TokenTaxonomyFramework/schemas/dmrv-extension-package.schema.json",
+  "title": "dMRV Extension Package JSON",
+  "description": "Baseline JSON publication shape for dMRV deployment and instance package files.",
+  "oneOf": [
+    { "type": "object" },
+    { "type": "array" }
+  ]
+}

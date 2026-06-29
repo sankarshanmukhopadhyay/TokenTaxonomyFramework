@@ -46,12 +46,31 @@ Historical tooling may have generated these outputs from service implementations
 
 The dMRV framework includes contextual extension sets for quality standards, methodologies, registry processes, and participant-specific evidence workflows. Extension sets are documented in [`extensions/readme.md`](extensions/readme.md) and indexed in the [dMRV extension catalog](../docs/dmrv-extension-catalog.md).
 
+## dMRV governance and assurance
+
+dMRV artifacts should be reviewed as claim-governance infrastructure. A valid package structure only proves that the repository can parse and publish the extension set. It does not prove that the methodology is scientifically correct, accepted by a registry, or sufficient for credit issuance.
+
+For v1.3.0, dMRV contributors should document:
+
+| Governance area | Required documentation |
+|---|---|
+| Methodology authority | Methodology, quality standard, registry, or governing process that authorizes the variables and formulas. |
+| Measurement boundary | Project, geography, date range, activity boundary, leakage boundary, and applicable baseline assumptions. |
+| Verifier role | Verifier identity, authorization or accreditation basis, review scope, and evidence retained. |
+| Claim source | Sensor, document, registry, attestation, model output, or manual source used to support the claim. |
+| Double-counting control | Registry dependency, unique claim identifier, retirement or cancellation mechanism, and conflict check. |
+| Revocation or correction | Conditions under which a claim, credit, variable, or extension set can be corrected, suspended, revoked, or superseded. |
+| Audit trail | Validation output, source evidence references, methodology version, verifier decision, and lifecycle event receipts. |
+
+Extension sets intended for production or registry-linked workflows should target the Silver or Gold assurance profile in [the conformance and evidence guide](../docs/conformance-and-evidence.md).
+
 ## Validation
 
 Run repository validation from the repository root:
 
 ```bash
 python scripts/validate_json.py
+python scripts/validate_json.py --schema-policy
 python scripts/check_internal_links.py
 python scripts/check_artifact_structure.py
 python scripts/build_artifact_index.py --check

@@ -16,6 +16,8 @@ The repository provides:
 - Protocol buffer models and control-message documentation for implementation-facing workflows.
 - A Digital Measurement, Reporting and Verification (dMRV) workspace for business-process and ecological-market use cases.
 - Validation scripts and generated catalogs that make the artifact library easier to inspect, test, and publish.
+- v1.3.0 governance metadata guidance for authority, delegation, lifecycle state, transfer controls, revocation, and evidence.
+- Crosswalks that align TTF artifacts with current tokenization standards, regulatory categories, identity anchors, and assurance expectations.
 
 ## Who should use this repository
 
@@ -39,6 +41,9 @@ The repository provides:
 | [`artifacts/`](artifacts/) | Machine-readable taxonomy artifacts and proto definitions. |
 | [`dmrv/`](dmrv/readme.md) | Digital MRV standards workspace, samples, protos, and extension sets. |
 | [`docs/`](docs/index.md) | Generated catalogs, validation guidance, and conformance/evidence notes. |
+| [`docs/tokenization-landscape.md`](docs/tokenization-landscape.md) | Current tokenization landscape and v1.3.0 artifact expectations. |
+| [`docs/crosswalks/`](docs/crosswalks/README.md) | Crosswalks for identifiers, MiCA, IOSCO, BIS, ERC-3643, LEI/vLEI, and lifecycle events. |
+| [`schemas/`](schemas/README.md) | JSON Schema documentation and dependency-free schema-policy validation profile. |
 | [`scripts/`](scripts/) | Local and CI validation utilities. |
 | [`examples/`](examples/README.md) | Minimal adoption examples and validation-report patterns. |
 
@@ -47,6 +52,8 @@ The repository provides:
 TTF treats a token specification as a composition of reusable artifacts. A token is not only named in prose; it is described through a structured artifact set that can be reviewed, reused, rendered, and validated. This allows implementers to move from policy and business-language definitions toward concrete machine-readable specifications.
 
 The key design principle is that taxonomy artifacts should be understandable by humans and checkable by machines. Documentation explains intent and context. JSON and proto files provide implementation-grade structure. Validation scripts create evidence that the repository remains parseable and internally navigable.
+
+In v1.3.0, artifact authors are encouraged to describe token systems as executable governance. A token definition should make clear who has authority, what scope is delegated, which controls are enforceable, how suspension or revocation works, and what evidence survives after lifecycle events.
 
 ## dMRV workspace
 
@@ -60,6 +67,7 @@ Run the validation suite locally before opening a pull request:
 
 ```bash
 python scripts/validate_json.py
+python scripts/validate_json.py --schema-policy
 python scripts/check_internal_links.py
 python scripts/check_artifact_structure.py
 python scripts/build_artifact_index.py --check
@@ -81,6 +89,9 @@ The GitHub Actions workflow in [`.github/workflows/validate.yml`](.github/workfl
 - [dMRV extension catalog](docs/dmrv-extension-catalog.md)
 - [Validation guide](docs/validation.md)
 - [Conformance and evidence guide](docs/conformance-and-evidence.md)
+- [Tokenization landscape](docs/tokenization-landscape.md)
+- [Crosswalks](docs/crosswalks/README.md)
+- [Schema policy](schemas/README.md)
 
 ## Contributing
 

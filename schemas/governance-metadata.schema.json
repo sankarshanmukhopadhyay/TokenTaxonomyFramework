@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://interwork-alliance.github.io/TokenTaxonomyFramework/schemas/governance-metadata.schema.json",
+  "title": "TTF v1.3.0 Governance Metadata",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "authority": {
+      "type": "object",
+      "description": "Party or governance body responsible for the artifact scope.",
+      "additionalProperties": true,
+      "properties": {
+        "name": { "type": "string" },
+        "role": { "type": "string" },
+        "identifierScheme": { "type": "string" },
+        "identifier": { "type": "string" },
+        "delegationScope": { "type": "string" }
+      }
+    },
+    "lifecycle": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "state": {
+          "type": "string",
+          "enum": ["draft", "active", "deprecated", "superseded", "withdrawn"]
+        },
+        "effectiveDate": { "type": "string" },
+        "supersedes": { "type": "string" },
+        "supersededBy": { "type": "string" },
+        "revocationReference": { "type": "string" },
+        "migrationNotes": { "type": "string" }
+      }
+    },
+    "rightsModel": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "legalClaim": { "type": "string" },
+        "economicRights": { "type": "string" },
+        "redemptionRights": { "type": "string" },
+        "disputeForum": { "type": "string" }
+      }
+    },
+    "transferControls": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "permissioned": { "type": "boolean" },
+        "eligibilityCredentialRequired": { "type": "boolean" },
+        "jurisdictionalRestrictions": { "type": "array", "items": { "type": "string" } },
+        "policyReference": { "type": "string" }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "requiredEvidence": { "type": "array", "items": { "type": "string" } },
+        "auditLogRequired": { "type": "boolean" },
+        "conformanceLevel": {
+          "type": "string",
+          "enum": ["bronze", "silver", "gold"]
+        }
+      }
+    }
+  }
+}

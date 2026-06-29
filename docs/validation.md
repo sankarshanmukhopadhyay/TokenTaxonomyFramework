@@ -8,6 +8,7 @@ Run all checks from the repository root:
 
 ```bash
 python scripts/validate_json.py
+python scripts/validate_json.py --schema-policy
 python scripts/check_internal_links.py
 python scripts/check_artifact_structure.py
 python scripts/build_artifact_index.py --check
@@ -18,6 +19,7 @@ python scripts/build_artifact_index.py --check
 | Script | Evidence produced | Failure condition |
 |---|---|---|
 | `scripts/validate_json.py` | Count of valid and invalid JSON files. | Any `.json` file cannot be parsed. |
+| `scripts/validate_json.py --schema-policy` | Count of parseable JSON files plus schema-policy failures. | Schema files, artifact roots, governance metadata, or dMRV package files violate repository policy. |
 | `scripts/check_internal_links.py` | Count of local Markdown links checked. | Any local Markdown link points to a missing file or leaves the repository. |
 | `scripts/check_artifact_structure.py` | Pass/fail report for required artifact package files. | Required root artifacts or dMRV package files are missing. |
 | `scripts/build_artifact_index.py --check` | Confirmation that generated catalogs are current. | Catalog content differs from repository inventory. |
@@ -35,3 +37,7 @@ Commit the updated files under `docs/` with the artifact change.
 ## CI enforcement
 
 The workflow in [`../.github/workflows/validate.yml`](../.github/workflows/validate.yml) runs the same checks on pushes and pull requests. Maintainers should treat a green validation run as the minimum evidence required before merging artifact or documentation changes.
+
+## Evidence interpretation
+
+A passing validation run means the repository publication surface is parseable, navigable, structurally complete, and aligned with the current generated catalogs. It does not prove that a token is legally valid, properly backed, scientifically correct, or regulator-approved. Those claims require separate authority and evidence review, documented through the conformance profiles in [`conformance-and-evidence.md`](conformance-and-evidence.md).

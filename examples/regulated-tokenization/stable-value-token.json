@@ -1,0 +1,43 @@
+{
+  "exampleType": "stable-value-token",
+  "description": "Illustrative stable-value token pattern for reserve, redemption, and issuer evidence.",
+  "tokenClass": {
+    "baseType": "fractional-fungible",
+    "valueType": "reference",
+    "representation": "common",
+    "supply": "capped-variable",
+    "behaviors": ["mintable", "burnable", "redeemable", "compliant", "logable"]
+  },
+  "governanceMetadata": {
+    "authority": {
+      "name": "Example Stable-Value Issuer",
+      "role": "issuer",
+      "identifierScheme": "LEI",
+      "identifier": "00000000000000000000",
+      "delegationScope": "Defines reserve, issuance, burn, redemption, and reporting controls for this example."
+    },
+    "lifecycle": {
+      "state": "draft",
+      "effectiveDate": "2026-06-28",
+      "revocationReference": "issuer-policy:stable-value-token-suspension",
+      "migrationNotes": "Classification as e-money, asset-referenced token, deposit token, or other asset depends on jurisdiction and issuer facts."
+    },
+    "rightsModel": {
+      "legalClaim": "Holder claim depends on issuer terms and applicable law.",
+      "economicRights": "Value reference is maintained through reserve and redemption policy.",
+      "redemptionRights": "Redemption process, limits, fees, and timing must be documented by issuer.",
+      "disputeForum": "Issuer-designated complaint and dispute process."
+    },
+    "transferControls": {
+      "permissioned": true,
+      "eligibilityCredentialRequired": false,
+      "jurisdictionalRestrictions": ["issuer-policy-dependent"],
+      "policyReference": "../../docs/crosswalks/mica.md"
+    },
+    "evidence": {
+      "requiredEvidence": ["issuer authorization", "reserve attestation", "mint receipt", "burn receipt", "redemption receipt", "suspension notice"],
+      "auditLogRequired": true,
+      "conformanceLevel": "silver"
+    }
+  }
+}

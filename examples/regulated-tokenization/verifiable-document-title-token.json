@@ -1,0 +1,43 @@
+{
+  "exampleType": "verifiable-document-title-token",
+  "description": "Illustrative document or title token pattern with issuing authority, holder binding, and revocation evidence.",
+  "tokenClass": {
+    "baseType": "singleton",
+    "valueType": "reference",
+    "representation": "unique",
+    "supply": "fixed",
+    "behaviors": ["attestable", "referenceable", "non-transferable", "revocable", "logable"]
+  },
+  "governanceMetadata": {
+    "authority": {
+      "name": "Example Issuing Authority",
+      "role": "issuer",
+      "identifierScheme": "LEI",
+      "identifier": "00000000000000000000",
+      "delegationScope": "Issues and revokes document/title token records for this example only."
+    },
+    "lifecycle": {
+      "state": "draft",
+      "effectiveDate": "2026-06-28",
+      "revocationReference": "issuer:document-status",
+      "migrationNotes": "Production use requires source-of-truth and legal-recognition review."
+    },
+    "rightsModel": {
+      "legalClaim": "Represents a verifiable reference to a document, title, license, or certificate record.",
+      "economicRights": "None unless separately granted by source document.",
+      "redemptionRights": "Not applicable; status is verified through issuing authority.",
+      "disputeForum": "Issuing authority correction or appeal process."
+    },
+    "transferControls": {
+      "permissioned": true,
+      "eligibilityCredentialRequired": true,
+      "jurisdictionalRestrictions": ["issuer-policy-dependent"],
+      "policyReference": "../../docs/crosswalks/lei-vlei.md"
+    },
+    "evidence": {
+      "requiredEvidence": ["issuer authority", "subject binding", "document hash or reference", "status check", "revocation receipt"],
+      "auditLogRequired": true,
+      "conformanceLevel": "silver"
+    }
+  }
+}

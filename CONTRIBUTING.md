@@ -18,6 +18,7 @@ Run these commands before opening a pull request:
 
 ```bash
 python scripts/validate_json.py
+python scripts/validate_json.py --schema-policy
 python scripts/check_internal_links.py
 python scripts/check_artifact_structure.py
 python scripts/build_artifact_index.py --check
@@ -39,6 +40,15 @@ Artifact changes should clearly state:
 - whether downstream implementers need migration guidance;
 - what validation evidence was produced.
 
+For regulated, financial, identity-bound, sustainability, collateral, or other evidence-sensitive artifacts, include v1.3.0 governance metadata where practical:
+
+- authority and delegation scope;
+- lifecycle state;
+- legal or operational rights model;
+- transfer-control policy;
+- revocation, suspension, correction, or supersession route;
+- required evidence and target assurance profile.
+
 ## dMRV extension-set submissions
 
 A dMRV extension-set contribution should include:
@@ -58,6 +68,8 @@ GettingStarted.md or README.md
 ```
 
 The repository validation scripts check for the minimum package shape. They do not verify the scientific, registry, economic, or legal correctness of methodology content. Contributors remain responsible for documenting methodology assumptions, registry dependencies, and review limitations.
+
+dMRV submissions should also document verifier role, measurement boundary, double-counting controls, and claim correction or revocation conditions.
 
 ## Documentation expectations
 

@@ -30,6 +30,80 @@ If an artifact's definition is captured using a Word or other template, the arti
 - List of analogies and aliases
 - Comments
 
+## v1.3.0 Governance Metadata
+
+New or materially changed artifacts should include a `governanceMetadata` object when the artifact is intended to represent a regulated, financial, identity-bound, sustainability, collateral, or otherwise evidence-sensitive token system. This metadata is additive and does not replace the existing TTF artifact object model.
+
+```json
+{
+  "governanceMetadata": {
+    "authority": {
+      "name": "Example Issuer Governance Committee",
+      "role": "issuer",
+      "identifierScheme": "LEI",
+      "identifier": "00000000000000000000",
+      "delegationScope": "Defines token template and issuance policy only"
+    },
+    "lifecycle": {
+      "state": "draft",
+      "effectiveDate": "2026-06-28",
+      "supersedes": "",
+      "supersededBy": "",
+      "revocationReference": "",
+      "migrationNotes": "No production migration required for draft artifacts."
+    },
+    "rightsModel": {
+      "legalClaim": "Describe the legal or operational claim represented by the token.",
+      "economicRights": "Describe holder economic rights, if any.",
+      "redemptionRights": "Describe redemption rights, limitations, and process.",
+      "disputeForum": "Describe the dispute or appeal forum."
+    },
+    "transferControls": {
+      "permissioned": true,
+      "eligibilityCredentialRequired": true,
+      "jurisdictionalRestrictions": ["example-jurisdiction"],
+      "policyReference": "docs/crosswalks/erc-3643.md"
+    },
+    "evidence": {
+      "requiredEvidence": ["issuer authority", "eligibility decision", "audit log"],
+      "auditLogRequired": true,
+      "conformanceLevel": "silver"
+    }
+  }
+}
+```
+
+### Metadata Fields
+
+| Field | Purpose |
+|---|---|
+| `authority` | Identifies who is authorized to define, issue, maintain, verify, or withdraw the artifact. |
+| `lifecycle` | Identifies whether the artifact is draft, active, deprecated, superseded, or withdrawn. |
+| `rightsModel` | Clarifies what the token holder actually holds: legal title, economic exposure, service access, evidence claim, or another right. |
+| `transferControls` | Documents whether transfer requires identity, eligibility, jurisdiction, policy, or role checks. |
+| `evidence` | Lists evidence that should survive validation, issuance, transfer, redemption, revocation, or retirement. |
+
+## Lifecycle States
+
+| State | Meaning | Required reviewer attention |
+|---|---|---|
+| `draft` | Artifact is proposed or illustrative and should not be treated as production guidance. | Confirm no implied endorsement or production dependency. |
+| `active` | Artifact is the current maintained version for its stated scope. | Confirm validation evidence and documentation are current. |
+| `deprecated` | Artifact remains available but should not be used for new implementations. | Include successor or migration notes where practical. |
+| `superseded` | Artifact has been replaced by another artifact. | Link the replacement and explain compatibility. |
+| `withdrawn` | Artifact should no longer be used. | Explain legal, security, governance, or quality reason where possible. |
+
+## Breaking Changes
+
+A change is breaking when it alters artifact identifiers, removes expected fields, changes established semantics, removes proto messages, changes package structure, or modifies lifecycle controls used by implementers. Breaking changes should include:
+
+- affected artifact paths;
+- reason for change;
+- compatibility impact;
+- migration notes;
+- validation evidence;
+- lifecycle state updates.
+
 ## Proto File Format
 
 Proto files are optional, but recommended for behaviors as they are useful in understanding how interaction with a behavior should work.  When used in addition with a supporting sequence diagram it can provide a deep definition of the artifact.

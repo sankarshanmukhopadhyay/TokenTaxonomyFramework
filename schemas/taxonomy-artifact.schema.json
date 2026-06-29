@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://interwork-alliance.github.io/TokenTaxonomyFramework/schemas/taxonomy-artifact.schema.json",
+  "title": "TTF Taxonomy Artifact",
+  "type": "object",
+  "additionalProperties": true,
+  "anyOf": [
+    {
+      "required": ["artifact"],
+      "properties": {
+        "artifact": {
+          "type": "object",
+          "required": ["artifactSymbol", "name"],
+          "additionalProperties": true,
+          "properties": {
+            "artifactSymbol": {
+              "type": "object",
+              "required": ["type"],
+              "additionalProperties": true,
+              "properties": {
+                "id": { "type": "string" },
+                "type": { "type": "string" },
+                "version": { "type": "string" },
+                "tooling": { "type": "string" }
+              }
+            },
+            "name": { "type": "string" }
+          }
+        }
+      }
+    },
+    {
+      "required": ["version"],
+      "properties": {
+        "version": {
+          "type": "object",
+          "required": ["id", "version"],
+          "additionalProperties": true
+        }
+      }
+    },
+    {
+      "required": ["singleTokenGrammar"],
+      "properties": {
+        "singleTokenGrammar": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    }
+  ]
+}

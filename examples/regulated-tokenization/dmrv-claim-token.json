@@ -1,0 +1,43 @@
+{
+  "exampleType": "dmrv-claim-token",
+  "description": "Illustrative ecological claim token pattern with methodology, verifier, registry, and double-counting evidence.",
+  "tokenClass": {
+    "baseType": "whole-non-fungible",
+    "valueType": "reference",
+    "representation": "unique",
+    "supply": "gated",
+    "behaviors": ["attestable", "credible", "processable", "revocable", "logable"]
+  },
+  "governanceMetadata": {
+    "authority": {
+      "name": "Example Methodology Owner",
+      "role": "methodology-authority",
+      "identifierScheme": "registry-specific",
+      "identifier": "example-methodology-v1",
+      "delegationScope": "Defines methodology variables, formulas, claim evidence, and verifier role for this example."
+    },
+    "lifecycle": {
+      "state": "draft",
+      "effectiveDate": "2026-06-28",
+      "revocationReference": "registry:claim-status",
+      "migrationNotes": "Production use requires registry acceptance and independent methodology review."
+    },
+    "rightsModel": {
+      "legalClaim": "Represents a verified ecological claim or pre-credit claim, not automatically a tradable credit.",
+      "economicRights": "Economic rights depend on registry issuance and market rules.",
+      "redemptionRights": "Retirement, cancellation, or conversion rights depend on registry process.",
+      "disputeForum": "Registry or methodology dispute process."
+    },
+    "transferControls": {
+      "permissioned": true,
+      "eligibilityCredentialRequired": true,
+      "jurisdictionalRestrictions": ["registry-dependent"],
+      "policyReference": "../../dmrv/extensions/readme.md"
+    },
+    "evidence": {
+      "requiredEvidence": ["methodology version", "measurement boundary", "claim source", "verifier decision", "registry status", "double-counting check", "revocation condition"],
+      "auditLogRequired": true,
+      "conformanceLevel": "gold"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "exampleType": "permissioned-rwa-token",
+  "description": "Illustrative permissioned real-world asset token pattern using v1.3.0 governance metadata.",
+  "tokenClass": {
+    "baseType": "fractional-fungible",
+    "valueType": "reference",
+    "representation": "common",
+    "supply": "capped-variable",
+    "behaviors": ["transferable", "compliant", "roles", "pausable", "revocable"]
+  },
+  "governanceMetadata": {
+    "authority": {
+      "name": "Example Asset Issuer",
+      "role": "issuer",
+      "identifierScheme": "LEI",
+      "identifier": "00000000000000000000",
+      "delegationScope": "Defines issuance policy, eligibility policy, and asset verification requirements for this example only."
+    },
+    "lifecycle": {
+      "state": "draft",
+      "effectiveDate": "2026-06-28",
+      "revocationReference": "issuer-policy:asset-token-withdrawal",
+      "migrationNotes": "Illustrative example; no production migration."
+    },
+    "rightsModel": {
+      "legalClaim": "Reference claim to an off-chain asset held under a documented custody arrangement.",
+      "economicRights": "Holder receives the economic exposure described in the offering or asset documentation.",
+      "redemptionRights": "Redemption depends on issuer policy, transfer restrictions, and asset liquidity.",
+      "disputeForum": "Issuer-designated dispute process."
+    },
+    "transferControls": {
+      "permissioned": true,
+      "eligibilityCredentialRequired": true,
+      "jurisdictionalRestrictions": ["example-jurisdiction"],
+      "policyReference": "../../docs/crosswalks/erc-3643.md"
+    },
+    "evidence": {
+      "requiredEvidence": ["issuer authority", "asset custody evidence", "holder eligibility decision", "transfer approval receipt"],
+      "auditLogRequired": true,
+      "conformanceLevel": "silver"
+    }
+  }
+}

@@ -54,9 +54,24 @@ An extension-set pull request should include:
 - sample data or validation notes;
 - known limitations;
 - methodology or registry assumptions;
+- methodology authority and version;
+- verifier role and review scope;
+- registry dependency and double-counting controls;
+- revocation, correction, or supersession conditions;
 - validation evidence from the repository scripts.
 
 The repository checks parseability and package completeness. It does not certify the legal, scientific, economic, or registry correctness of the submitted methodology content.
+
+## v1.3.0 evidence expectations
+
+| Evidence area | What reviewers should see |
+|---|---|
+| Authority | Methodology owner, registry, quality standard, or contributor authority is named. |
+| Delegation | Roles delegated to project developer, monitor, verifier, registry, and issuer are explicit. |
+| Measurement | Boundary, formula inputs, fixed variables, and claim sources are documented. |
+| Verification | Verifier authority, decision basis, and retained evidence are described. |
+| Revocation | Claim correction, credit reversal, artifact supersession, and registry withdrawal paths are documented. |
+| Auditability | Validation report, source evidence references, and lifecycle events remain inspectable after merge. |
 
 ## Current extension sets
 
@@ -71,6 +86,7 @@ Run the validation suite before contributing:
 
 ```bash
 python scripts/validate_json.py
+python scripts/validate_json.py --schema-policy
 python scripts/check_internal_links.py
 python scripts/check_artifact_structure.py
 python scripts/build_artifact_index.py --check

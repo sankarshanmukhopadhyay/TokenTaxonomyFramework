@@ -1,0 +1,43 @@
+{
+  "exampleType": "tokenized-bond",
+  "description": "Illustrative tokenized bond pattern separating token record, legal instrument, investor eligibility, and lifecycle evidence.",
+  "tokenClass": {
+    "baseType": "fractional-fungible",
+    "valueType": "reference",
+    "representation": "common",
+    "supply": "fixed",
+    "behaviors": ["issuable", "transferable", "compliant", "encumberable", "redeemable", "logable"]
+  },
+  "governanceMetadata": {
+    "authority": {
+      "name": "Example Bond Issuer",
+      "role": "issuer",
+      "identifierScheme": "LEI",
+      "identifier": "00000000000000000000",
+      "delegationScope": "Defines tokenized bond template and issuance controls for the example."
+    },
+    "lifecycle": {
+      "state": "draft",
+      "effectiveDate": "2026-06-28",
+      "revocationReference": "bond-agent:instrument-status",
+      "migrationNotes": "Production use would require legal-instrument, paying-agent, custodian, and regulator-specific review."
+    },
+    "rightsModel": {
+      "legalClaim": "Claim is defined by the off-chain bond instrument, not by the token record alone.",
+      "economicRights": "Coupon and principal rights follow the instrument documentation.",
+      "redemptionRights": "Redemption follows maturity, call, default, or early redemption provisions.",
+      "disputeForum": "Instrument documentation controls."
+    },
+    "transferControls": {
+      "permissioned": true,
+      "eligibilityCredentialRequired": true,
+      "jurisdictionalRestrictions": ["investor-eligibility-required"],
+      "policyReference": "../../docs/crosswalks/iosco-financial-asset-tokenization.md"
+    },
+    "evidence": {
+      "requiredEvidence": ["instrument identifier", "issuer authority", "investor eligibility", "transfer decision", "corporate action event", "redemption receipt"],
+      "auditLogRequired": true,
+      "conformanceLevel": "gold"
+    }
+  }
+}
